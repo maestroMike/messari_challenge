@@ -4,14 +4,10 @@ using MarketDataParser;
 
 CultureInfo.DefaultThreadCurrentCulture = CultureInfo.InvariantCulture;
 
- var sw = Stopwatch.StartNew();
 WaitForBeginInput();
 var markets = InitMarketCollectors();
 await new MarketDataProcessor(markets).Process(Environment.ProcessorCount);
 OutResults(markets);
-
-Console.WriteLine("END");
-Console.WriteLine($"Elapsed {sw.Elapsed}");
 
 void WaitForBeginInput()
 {

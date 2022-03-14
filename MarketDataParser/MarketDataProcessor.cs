@@ -61,6 +61,7 @@ public class MarketDataProcessor
         await Task.Yield();
         await foreach (var input in this.inChannel.Reader.ReadAllAsync())
         {
+            await Task.Yield();
             var tradeData = TradeInfoParser.Parse(input);
             this.markets[tradeData.MarketId].Add(tradeData.Volume, tradeData.Price, tradeData.IsBuy);
         }
