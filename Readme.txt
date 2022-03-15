@@ -9,3 +9,18 @@ dotnet publish MarketDataParser -c Release -o bin
 To run unit tests:
 dotnet test MarketDataParser.Tests
 
+Performance testing results:
+Intel(R) Core(TM) i5-4570 CPU @ 3.20GHz 4 cores
+Windows WSL - Ubuntu 20.04
+
+time (./stdoutinator_amd64_linux.bin > /dev/null)
+
+real    0m17.207s
+user    0m16.295s
+sys     0m3.219s
+
+time (./stdoutinator_amd64_linux.bin | ./MarketDataParser > /tmp/MarketDataParse_out.txt)
+
+real    0m21.678s
+user    1m0.995s
+sys     0m16.486s
