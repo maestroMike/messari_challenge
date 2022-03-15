@@ -13,14 +13,23 @@ Performance testing results:
 Intel(R) Core(TM) i5-4570 CPU @ 3.20GHz 4 cores
 Windows WSL - Ubuntu 20.04
 
+Baseline
 time (./stdoutinator_amd64_linux.bin > /dev/null)
 
 real    0m17.207s
 user    0m16.295s
 sys     0m3.219s
 
+Implementation based on Channels (Use MarketDataProcessor)
 time (./stdoutinator_amd64_linux.bin | ./MarketDataParser > /tmp/MarketDataParse_out.txt)
 
 real    0m21.678s
 user    1m0.995s
 sys     0m16.486s
+
+Simplified Implementation (Use MarketDataProcessor_Simplified)
+time (./stdoutinator_amd64_linux.bin | ./MarketDataParser > /tmp/MarketDataParse_out.txt)
+
+real    0m20.829s
+user    0m38.282s
+sys     0m14.528s

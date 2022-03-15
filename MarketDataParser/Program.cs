@@ -1,12 +1,12 @@
-﻿using System.Diagnostics;
-using System.Globalization;
+﻿using System.Globalization;
 using MarketDataParser;
 
 CultureInfo.DefaultThreadCurrentCulture = CultureInfo.InvariantCulture;
 
 WaitForBeginInput();
 var markets = InitMarketCollectors();
-await new MarketDataProcessor(markets).Process(Environment.ProcessorCount);
+await new MarketDataProcessor_Simplified(markets).Process(Environment.ProcessorCount);
+// await new MarketDataProcessor(markets).Process(Environment.ProcessorCount);
 OutResults(markets);
 
 void WaitForBeginInput()
